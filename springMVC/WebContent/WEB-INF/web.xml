@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>springMVC</display-name>
+  <!--设置默认访问的页面 -->
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 设置servlet请求规则-->
+  <servlet>  
+    <servlet-name>chapter2</servlet-name>  
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+    <!--表示启动容器时初始化该Servlet -->
+    <load-on-startup>1</load-on-startup>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>chapter2</servlet-name> 
+    <!-- 表示哪些请求交给Spring Web MVC处理， “/” 是用来定义默认servlet映射的。也可以如“*.html”表示拦截所有以html为扩展名的请求 *.do表示拦截所有的.do请求 --> 
+    <url-pattern>/</url-pattern>  
+  </servlet-mapping>
+  
+  <!--处理中文乱码问题 -->
+  <filter>  
+    <filter-name>CharacterEncodingFilter</filter-name>  
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+    <init-param>  
+        <param-name>encoding</param-name>  
+        <param-value>UTF-8</param-value>  
+    </init-param>  
+ </filter>  
+ <filter-mapping>  
+    <filter-name>CharacterEncodingFilter</filter-name>  
+    <url-pattern>/*</url-pattern>  
+ </filter-mapping>
+ 
+ <!-- 设置404错误页面 -->
+ <error-page>
+ 	<error-code>404</error-code>
+ 	<location>/error.jsp</location>
+ </error-page>
+ 
+ <!-- 配置spring文件监听器 -->
+ <listener>
+ 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ </listener>
+ <context-param>  
+   <param-name>contextConfigLocation</param-name>  
+   <param-value>/WEB-INF/chapter2-servlet.xml</param-value>  
+ </context-param>
+ 
+ <!-- 配置log4j文件监听器 -->
+ <listener> 
+	<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class> 
+ </listener>  
+ <context-param>  
+       <param-name>log4jConfigLocation</param-name>
+       <param-value>/WEB-INF/log4j.properties</param-value>  
+ </context-param>
+ 
+</web-app>
