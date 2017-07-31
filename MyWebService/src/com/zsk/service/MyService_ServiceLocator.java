@@ -22,7 +22,7 @@ public class MyService_ServiceLocator extends org.apache.axis.client.Service imp
     }
 
     // Use to get a proxy class for MyServicePort
-    private java.lang.String MyServicePort_address = "http://127.0.0.1:8080/server";
+    private java.lang.String MyServicePort_address = "http://localhost:8080/MyWebService/server";
 
     public java.lang.String getMyServicePortAddress() {
         return MyServicePort_address;
