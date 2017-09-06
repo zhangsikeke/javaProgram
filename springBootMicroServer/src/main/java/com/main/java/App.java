@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController //@RestController的意思就是controller里面的方法都以json格式输出,不用再写什么jackjson配置的了！
+@RestController //RESTful方式的控制器，@RestController的意思就是controller里面的方法都以json格式输出,不用再写什么jackjson配置的了！
 @EnableAutoConfiguration
 @RequestMapping(value="/app")
 public class App
@@ -21,6 +21,7 @@ public class App
 		UserBean us=new UserBean(name,age);
 		return us;
 	}
+	
 	@RequestMapping(value="/hello",method=RequestMethod.POST)
 	public UserBean posthello(HttpServletRequest requst)
 	{
@@ -29,6 +30,7 @@ public class App
 		UserBean us=new UserBean(name,age);
 		return us;
 	}
+	
 	public static void main(String[] args)
 	{
 		SpringApplication.run(App.class, args);
