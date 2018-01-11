@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.main.java.App;
+import com.conctrol.LoginController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootConfiguration
@@ -22,7 +22,7 @@ public class appControlerTest
 	@Before
 	public void setUp() throws Exception
 	{
-		mvc = MockMvcBuilders.standaloneSetup(new App()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new LoginController()).build();
 	}
 
 	@Test
