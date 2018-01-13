@@ -30,6 +30,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--权限依赖-->
+        <dependency>    
+           <groupId>org.springframework.boot</groupId>    
+           <artifactId>spring-boot-starter-security</artifactId>    
+        </dependency>
     </dependencies>
 
     <!--依赖管理，用于管理spring-cloud的依赖-->
