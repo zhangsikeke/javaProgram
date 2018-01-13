@@ -1,0 +1,19 @@
+server: 
+  port: 8080
+  tomcat: 
+  uri-encoding :  UTF-8
+spring: 
+  application: 
+    name: springBootMicroServer
+  thymeleaf: 
+    prefix: classpath:/templates/
+    suffix: html
+    encoding: UTF-8
+    cache: false
+
+eureka: 
+  client: 
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://admin:admin@127.0.0.1:9001/eureka/
