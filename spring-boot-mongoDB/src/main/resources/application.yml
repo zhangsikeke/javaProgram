@@ -1,0 +1,16 @@
+server: 
+  port: 8080
+  tomcat: 
+  uri-encoding :  UTF-8
+spring: 
+  application: 
+    name: spring-boot-mgr
+  thymeleaf: 
+    encoding: UTF-8
+    cache: false
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: mydb
+debug: false
