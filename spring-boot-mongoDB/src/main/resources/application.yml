@@ -4,7 +4,7 @@ server:
   uri-encoding :  UTF-8
 spring: 
   application: 
-    name: spring-boot-mgr
+    name: spring-boot-MongoDB
   thymeleaf: 
     encoding: UTF-8
     cache: false
@@ -13,4 +13,4 @@ spring:
       host: 127.0.0.1
       port: 27017
       database: mydb
-debug: false
+debug: true

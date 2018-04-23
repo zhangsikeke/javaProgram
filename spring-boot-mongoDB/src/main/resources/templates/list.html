@@ -1,29 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>电影列表</title>
-<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css" />
+<script src="/vendor/jquery/jquery-1.10.2.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#getUUID").click(function() {
+			$.ajax({
+				url : "/getUUID",
+				type : "get",
+				async : true,
+				success : function(result) {
+					$("#uuidtxt").val(result);
+				},
+				error : function(result) {
+					$("#uuidtxt").val('获取uuid产生异常');
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body class="container">
-<div class="form-group">
-	<h1>电影列表</h1>
-</div>
-<div class="with:80%">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>电影名</th>
-            <th>路径</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr  th:each="movie : ${movieList}">
-            <th scope="row" th:text="${movie.name}">null</th>
-            <td th:text="${movie.path}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+	<div class="form-group">
+		<h1>用户列表</h1>
+	</div>
+	<div class="with:80%">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>用户编号</th>
+					<th>用户名</th>
+					<th>邮箱</th>
+					<th>昵称</th>
+					<th>密码</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${userList}">
+					<td th:text="${user.no}"></td>
+					<td th:text="${user.username}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.nickname}"></td>
+					<td th:text="${user.password}"></td>
+					<td><p class="btn btn-info btn-xs" th:text="编辑" />&nbsp;
+						<p class="btn btn-danger btn-xs" th:text="删除" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<p id="getUUID" class="btn btn-info btn-xs">获取UUID</p>
+			<br /> <br /> <input type="text" id="uuidtxt" class="form-control" />
+		</div>
+	</div>
 </body>
+
 </html>

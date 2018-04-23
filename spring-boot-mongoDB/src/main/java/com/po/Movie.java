@@ -55,12 +55,4 @@ public class Movie
 		super();
 	}
 
-	@Override
-	public String toString()
-	{
-		return "Movie [id=" + id + ", name=" + name + ", path=" + path + "]";
-	}
-	
-	
-
 }
