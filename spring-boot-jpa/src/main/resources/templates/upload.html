@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+<head>
+<title>文件上传</title>
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css" />
+</head>
+
+<body class="container ">
+		<div>
+			<form action="/upload" method="POST" enctype="multipart/form-data">
+				文件：<input class="btn btn-info btn-xs" type="file" name="file" /><br />
+				<input class="btn btn-info btn-xs" type="submit" value="上传" />
+			</form>
+		</div>
+
+		<div>
+			<a href="/download" class="btn btn-success btn-xs">下载 文件</a>
+		</div>
+
+		<div>
+			<p>多文件上传</p>
+			<form method="POST" enctype="multipart/form-data"
+				action="/batch/upload">
+				<p>
+					文件1：<input class="btn btn-info btn-xs" type="file" name="file" />
+				</p>
+				<p>
+					文件2：<input class="btn btn-info btn-xs" type="file" name="file" />
+				</p>
+				<p>
+					<input class="btn btn-info btn-xs" type="submit" value="上传" />
+				</p>
+			</form>
+		</div>
+
+</body>
+</html>
